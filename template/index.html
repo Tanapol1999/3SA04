@@ -1,124 +1,900 @@
 <!DOCTYPE html>
-<html>
-<title>Food & beverage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
-.w3-bar-block .w3-bar-item {padding:20px}
-</style>
+<html lang="en">
+
+<head>
+  <style>
+    /*
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+*/
+
+/**** CSS RESET AND BASIC STYLING ****/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  line-height: 1.7;
+}
+
+/**** NABVAR ****/
+
+/* Nabar Wrapper */
+
+.nav {
+  align-items: center;
+  box-shadow: 0px 10px 24px -12px rgba(242, 241, 239, 0.7);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* END */
+
+/* Menu */
+
+.menu {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3rem;
+  width: 14rem;
+}
+
+.youlogo {
+  width: 10rem;
+}
+
+/* END */
+
+/* Search Bar */
+
+.searchbar {
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
+  display: flex;
+  overflow: hidden;
+  width: 66rem;
+}
+
+.searchbar input {
+  border-right: 1px solid #ccc;
+  border: none;
+  font-size: 1.5rem;
+  outline: none;
+  padding: 0.5rem 0.9rem;
+  width: 90%;
+}
+
+.searchbar input::placeholder {
+  font-size: 1.5rem;
+}
+
+.searchbar .search-btn {
+  align-items: stretch;
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+
+.searchbar .search-icon {
+  color: #888;
+  font-size: 2rem;
+}
+
+/* END */
+
+/* Feature Icons */
+
+.material-icons {
+  color: #666;
+  font-size: 2.4rem;
+}
+
+.feature-icons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 4rem;
+  position: relative;
+  width: 22rem;
+}
+
+.feature-icons .account-icon {
+  color: #b1348a;
+  font-size: 3.5rem;
+}
+
+.bell-icon-badge {
+  background-color: rgb(204, 22, 0);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 19px;
+  position: absolute;
+  right: 49px;
+  text-align: center;
+  top: 0;
+  width: 19px;
+}
+
+/* END */
+
+/* Main contents */
+
+main {
+  display: flex;
+  padding: 2.5rem 7.5rem;
+}
+
+.player {
+  display: block;
+  margin-right: 2.5rem;
+  width: 67%;
+}
+
+.video-info {
+  border-bottom: 1px solid #ccc;
+  margin-top: 1.3rem;
+}
+
+.video-info .title {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.sidebar {
+  /* background-color: #3634b1; */
+  width: 31%;
+}
+
+.video-toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-views {
+  color: #555;
+  font-size: 1.7rem;
+  font-weight: 200;
+}
+
+.right-menu {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.right-menu .material-icons,
+.right-menu span {
+  color: #888;
+  font-size: 2rem;
+}
+
+.right-menu .share-btn .material-icons {
+  transform: scale(-1, 1);
+}
+
+.right-menu a span {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 0.6rem;
+}
+
+.thumb-wrapper,
+.share-btn,
+.save-btn,
+.options-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.thumb-wrapper {
+  border-bottom: 2px solid #888;
+  padding: 1.3rem 0;
+}
+
+.thumb-up-btn,
+.thumb-down-btn {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1.4rem;
+}
+
+.thumb-down-btn {
+  margin-left: 1.4rem;
+  margin-right: 0;
+}
+
+/* SIDE BAR */
+
+.suggested-video {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.suggested-video .thumbnail {
+  margin-right: 1rem;
+  position: relative;
+}
+
+.suggested-video .thumbnail span {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
+  bottom: 1rem;
+  color: white;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  padding: 0.05rem 0.5rem;
+  position: absolute;
+  right: 1rem;
+}
+
+.suggested-video .thumbnail-info {
+  flex-basis: 54%;
+}
+
+.suggested-video .thumbnail img {
+  height: 11rem;
+}
+
+.suggested-video .thumbnail-info h2 {
+  margin-bottom: 0.4rem;
+}
+
+.suggested-video h2 {
+  line-height: 1.2;
+}
+
+.suggested-video .channel,
+.suggested-video .views {
+  color: #777;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.001rem;
+  line-height: 1.3;
+}
+
+/* END */
+
+/* Chanel Info */
+
+.channel-info {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  padding: 1.6rem 0;
+}
+
+.channel-info .avatar {
+  /* background-color: cornflowerblue; */
+  flex-basis: 10%;
+}
+
+.channel-info .description {
+  /* background-color: coral; */
+  flex-basis: 70%;
+}
+
+.channel-info .subscribe {
+  /* background-color: deeppink; */
+  align-self: flex-start;
+  display: flex;
+  flex-basis: 30%;
+  justify-content: flex-end;
+}
+
+.channel-info .subscribe button {
+  background-color: rgb(204, 22, 0);
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem 1.8rem;
+  text-transform: uppercase;
+}
+
+.channel-info .subscribe button span {
+  display: inline-block;
+  margin-left: 0.3rem;
+}
+
+.description h2,
+.description h3 {
+  color: #333;
+  line-height: 1.3;
+}
+
+.description h3 {
+  color: #777;
+  font-size: 1.3rem;
+  font-weight: 200;
+  margin-bottom: 1.7rem;
+}
+
+.description p {
+  color: #333;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.description .show-more {
+  color: #777;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+}
+
+.avatar div {
+  background-color: red;
+  background-image: url("https://scontent.fbkk4-3.fna.fbcdn.net/v/t1.0-9/149982181_2745932109005361_5087067076306809365_o.jpg?_nc_cat=100&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeEQB1qBl2pFF4l9kuhImovlFfy-fPDa4lwV_L588NriXMtDbbWUA8ZzIPU7HbuIIRyZl_QbSuUL9tZJKNq7HKLF&_nc_ohc=UvtG8H_kQqAAX9N6met&_nc_ht=scontent.fbkk4-3.fna&oh=4b659aaf3bd52ee75905a45eda0eab3d&oe=604F1319");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
+.material-icons:hover,
+button:hover,
+img:hover {
+  cursor: pointer;
+}
+
+/* END */
+
+/* Comments */
+
+.comments {
+  margin-top: 3rem;
+}
+
+.comment-toolbar {
+  align-items: center;
+  display: flex;
+}
+
+.comment-toolbar div:nth-child(1) {
+  /* background-color: yellow; */
+  color: #444;
+  font-size: 1.6rem;
+  margin-right: 3rem;
+}
+
+.comment-toolbar div:nth-child(2) {
+  /* background-color:darksalmon; */
+  align-items: center;
+  color: #999;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.comment-toolbar .material-icons {
+  color: #999;
+  font-size: 2.6rem;
+  margin-right: 1rem;
+}
+
+.add-comment {
+  align-items: baseline;
+  display: flex;
+  margin-top: 1.8rem;
+}
+
+.add-comment .account-icon {
+  color: green;
+  font-size: 5.7rem;
+}
+
+.add-comment input {
+  border-bottom: 0.5px solid #ccc;
+  border: none;
+  color: #aaa;
+  font-size: 1.4rem;
+  margin-left: 2%;
+  outline: none;
+  padding: 1rem 0;
+  transform: translateY(-75%);
+  width: 90.7%;
+}
+
+.comment {
+  display: flex;
+  font-size: 1.4rem;
+  margin: 1.4rem 0;
+}
+.comment-info {
+  margin-left: 2rem;
+}
+
+.comment-info > * {
+  margin-bottom: 0.1rem;
+}
+
+.comment-info div {
+  margin-top: 0.8rem;
+}
+
+.comment-info h3 {
+  font-size: 1.4rem;
+}
+
+.comment-info h3 span {
+  color: #777;
+  font-weight: 200;
+  margin-left: 0.5rem;
+}
+
+.comment-info div {
+  display: flex;
+}
+
+.comment-avatar img {
+  background-color: red;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
+.comment-info .material-icons {
+  color: #777;
+  font-size: 1.7rem;
+  margin-right: 1rem;
+}
+
+.comment-info div a {
+  margin-right: 2rem;
+}
+  </style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>
+    t_047 - แม่กำปอง ( feat. เขียนไขและวานิช )
+  </title>
+  <link rel="icon" href="https://s.ytimg.com/yts/img/favicon_32-vflOogEID.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
 <body>
+  <nav class="nav">
+    <div class="menu">
+      <i class="material-icons">menu</i>
+      <img class="youlogo" src="https://scontent.fbkk3-3.fna.fbcdn.net/v/t1.0-9/149238329_2745950952336810_2882383323671995392_n.jpg?_nc_cat=103&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeFwyE51cbDw9n019MhvBNh8kSCFLp0G7f2RIIUunQbt_XSGufPV6Qbf5Jqd61pdiYYBDk70fYHYSRs6Fo81LrXQ&_nc_ohc=ovkRSwLR6FYAX-nwDZT&_nc_ht=scontent.fbkk3-3.fna&oh=716a80536a79dc85eaf9523333de401d&oe=604C63F8" />
+    </div>
+    <div class="searchbar">
+      <input type="text" name="search" id="search" placeholder="Search" />
+      <div class="search-btn">
+        <i class="material-icons search-icon">search</i>
+      </div>
+    </div>
+    <div class="feature-icons">
+      <i class="material-icons">video_call</i>
+      <i class="material-icons">apps</i>
+      <i class="material-icons">message</i>
+      <i class="material-icons">notifications</i>
+      <span class="bell-icon-badge">9+</span>
+      <i class="material-icons account-icon">account_circle</i>
+    </div>
+  </nav>
+  <main>
+    <section class="player">
+      <div class="youtube-player">
+        <iframe width="100%" height="600" src="https://www.youtube.com/embed/XcVmDJSqCNA" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-info">
+        <h1 class="title">
+          t_047 - แม่กำปอง ( feat. เขียนไขและวานิช )
+        </h1>
+        <div class="video-toolbar">
+          <span class="video-views">
+            15,093,691 views  
+          </span>
+          <span class="right-menu">
+            <div class="thumb-wrapper">
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">26K</span>
+              </a>
 
-<!-- Sidebar (hidden by default) -->
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()"
-  class="w3-bar-item w3-button">Close Menu</a>
-  <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
-</nav>
+              <a class="thumb-down-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count">361</span>
+              </a>
+            </div>
 
-<!-- Top menu -->
-<div class="w3-top">
-  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
-    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16">Mail</div>
-    <div class="w3-center w3-padding-16">My Food</div>
-  </div>
-</div>
-  
-<!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+            <a class="share-btn">
+              <i class="material-icons">reply</i>
+              <span>SHARE</span>
+            </a>
 
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-      <img src="/image/popsicle.jpg" alt="Sandwich" style="width:100%">
-      <h3>The Perfect Sandwich, A Real NYC Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/image/steak.jpg" alt="Steak" style="width:100%">
-      <h3>Let Me Tell You About This Steak</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/image/cherries.jpg" alt="Cherries" style="width:100%">
-      <h3>Cherries, interrupted</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      <p>What else?</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/image/wine.jpg" alt="Pasta and Wine" style="width:100%">
-      <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
-  
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <img src="/image/popsicle.jpg" alt="Popsicle" style="width:100%">
-      <h3>All I Need Is a Popsicle</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/image/salmon.jpg" alt="Salmon" style="width:100%">
-      <h3>Salmon For Your Skin</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/image/sandwich.jpg" alt="Sandwich" style="width:100%">
-      <h3>The Perfect Sandwich, A Real Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/image/croissant.jpg" alt="Croissant" style="width:100%">
-      <h3>Le French</h3>
-      <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
+            <a class="save-btn">
+              <i class="material-icons">playlist_add</i>
+              <span>SAVE</span>
+            </a>
+            <a class="options-btn">
+              <i class="material-icons">more_horiz</i>
+            </a>
+          </span>
+        </div>
+      </div>
 
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-    </div>
-  </div>
-  
-  <hr id="about">
+      <section class="channel-info">
+        <div class="avatar">
+          <div></div>
+        </div>
+        <div class="description">
+          <h2>T_047 Sound</h2>
+          <h3>Published on Feb 5, 2016</h3>
+          <p>t_047 - แม่กำปอง</p> 
+          <p> feat. เขียนไขและวานิช</p>
+            
+            <p>ฉันเชื่อว่าเสียงเพลงจะพาเราเดินทางไปยังสถานที่นึงได้</p>
+            <p>ที่ๆเราเคยอยู่ด้วยกัน ... ที่ๆเราเคยอยากไปด้วยกัน ... ที่ๆเราไม่มีโอกาสไปด้วยกัน</p>
+            
+            <p>ฉันอยากพาเธอไป 'แม่กำปอง'</p>
+          <p class="show-more">show more</p>
+        </div>
+        <div class="subscribe">
+          <button> subscribe <span>293K</span></button>
+        </div>
+      </section>
 
-  <!-- About Section -->
-  <div class="w3-container w3-padding-32 w3-center">  
-    <h3>About Me, The Food Man</h3><br>
-    <img src="/image/6110110178.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
-    <div class="w3-padding-32">
-      <h4><b>I am Who I Am!</b></h4>
-      <h6><i>With Passion For Real, Good Food</i></h6>
-      <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-    </div>
-  </div>
-  <hr>
+      <section class="comments">
+        <div class="comment-toolbar">
+          <div class="comment-count">
+            <span>2,957</span>
+            <span>Comments</span>
+          </div>
+          <div class="comment-count">
+            <i class="material-icons">sort</i>
+            <span>SORT BY</span>
+          </div>
+        </div>
+        <div class="add-comment">
+          <i class="material-icons account-icon">account_circle</i>
+          <input type="text" placeholder="Add a public comment...">
+        </div>
 
-<!-- End page content -->
-</div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img src="https://scontent.fbkk4-3.fna.fbcdn.net/v/t1.0-9/147870940_2745952582336647_4349831616116779460_n.jpg?_nc_cat=100&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeFVPSV_ck9uwtKZVdIMpGIh0pLoGtqZKRzSkuga2pkpHE-mjfirZ_ciDABDImqSx7Zumq0ryvsWHdZUHEJHGqKA&_nc_ohc=XsMwNTrSsmkAX9uf7aK&_nc_ht=scontent.fbkk4-3.fna&oh=4c2f2d355b12dc29e4970f235fa73c0c&oe=604C6CDF" alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>Corey Shafer<span>7 seconds ago</span></h3>
+            <p>Good Song</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">2K</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count">10K</span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-kAHjkR1GeQw/AAAAAAAAAAI/AAAAAAAAAAA/PFm4o2ptCOw/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>ภาณุเดช มากเกิด
+              <span>2 min ago</span></h3>
+            <p>วัยรุ่นสมัยนี้ชอบฟังเพลงเเรปแต่ต่างจากผมที่ชอบฟังเพลงแนวนี้.</p>
+              <p>หายากนะคนที่ฟังเพลงแนวเดียวกันกับเรา</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">2</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count"></span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-9zYxx9v-M1M/AAAAAAAAAAI/AAAAAAAAAAA/h0kq0RO44Uc/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>dec mem<span>7 min ago</span></h3>
+            <p>“ ไว้เราไปแม่กำปองด้วยกันนะ “</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">10</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count"></span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-LVgF_iFKcEc/AAAAAAAAAAI/AAAAAAAAAAA/-RIk_qU4FtY/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>Chilukar<span>8 min ago</span></h3>
+            <p>เด็กอายุ16 คนนี้หลงรักการเดินทางคนเดียวเข้าซะแล้วค่ะ ธรรมชาติทำให้ลืมสิ่งวุ่นวายไปเยอะเลย</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">1</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count">2</span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-NTyCIunXI1g/AAAAAAAAAAI/AAAAAAAAAAA/vz9SRJ2o8w0/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>The Cat<span>10 min ago</span></h3>
+            <p>Congratulations.🎉🎊🍾</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">5</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count"></span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-M6bgwfB3pBU/AAAAAAAAAAI/AAAAAAAAAAA/FmJhPDTRnyU/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>Stephen Logsdon<span>15 min ago</span></h3>
+            <p>ส่วนผมเดินทางหาคนที่เข้าใจครับ
+              แล้วในที่สุด #ก็เจอแล้ว 💖</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">2</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count">1</span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-cSlLzY-e-fk/AAAAAAAAAAI/AAAAAAAAAAA/BZBJgOGvxjI/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>Jim walker archery & videography<span> 20 min ago(edited)</span></h3>
+            <p>“ไปด้วยกันมั้ย?”</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">2K</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count">10K</span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-OJaXNY_UQFI/AAAAAAAAAAI/AAAAAAAAAAA/IOSl6LFe04U/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>Peter Dawes<span>4 days ago</span></h3>
+            <p>Congratulations 10 Millions View </p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">200</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count">12</span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-avatar">
+            <img
+              src="https://yt3.ggpht.com/-PgBRp0PSbwQ/AAAAAAAAAAI/AAAAAAAAAAA/CrSF0bsg3ss/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              alt="comment-avatar">
+          </div>
+          <div class="comment-info">
+            <h3>สาธานี<span>7 days ago</span></h3>
+            <p>หวังว่าแกจะกลับมาไปเที่ยวแม่กำปองกับเรานะ;)</p>
+            <div>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_up</i>
+                <span class="thumbs-count">2</span>
+              </a>
+              <a class="thumb-up-btn">
+                <i class="material-icons">thumb_down</i>
+                <span class="thumbs-count"></span>
+              </a>
+              <a>REPLY</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
 
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
+    <section class="sidebar">
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-3.fna.fbcdn.net/v/t1.0-9/146955105_2745931495672089_3029219940616340135_o.jpg?_nc_cat=109&ccb=3&_nc_sid=730e14&_nc_eui2=AeHfbrJ4bG2hBcICElQXHGJVmn8oj0dd3RiafyiPR13dGBQQuywyYOvBFEP3jXHinkZ52BIfuj0LYwiaIdBUiKXw&_nc_ohc=q2MlpteBfNkAX_dW_DV&_nc_ht=scontent.fbkk4-3.fna&oh=df906f250b79b5121883bb5f039feecc&oe=604D8869" alt="cabin" />
+          <span>6:30</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>[MAD] Move On - ปราโมทย์ วิเลปะนะ (Cover) | Aoy Amornphat</h2>
+          <div class="channel">MadpuppetStudio</div>
+          <div class="views">24.5M views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk3-4.fna.fbcdn.net/v/t1.0-9/148517591_2745932189005353_7915110543902893053_n.jpg?_nc_cat=108&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeE0875j1dUzp7Efg7ncWeLkI1QrXlSGRfUjVCteVIZF9QGaCaSW65OVsLpyI8WHevDIGDU1MoSTdfJmY5YVGY6S&_nc_ohc=Sq3q4dg1yk0AX-tH5KI&_nc_ht=scontent.fbkk3-4.fna&oh=e60f1b681ceb1c3b62ee4b3fa1e4f36b&oe=604F44C6" alt="cabin" />
+          <span>4:30</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>ยังไกล - Boy Peacemaker</h2>
+          <div class="channel">Boy Peacemaker</div>
+          <div class="views">2.7M views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-3.fna.fbcdn.net/v/t1.0-9/148915772_2745932319005340_6535999274486049398_o.jpg?_nc_cat=100&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeFpvOnJ-uMKTnBnJYmWeXFkJG5R0nz5emUkblHSfPl6ZZH5Y0LZ7dgWmoz0MQp3ifogeZQodSXI9J-2czLNnsed&_nc_ohc=sn8p-pueJL8AX_qsfiI&_nc_ht=scontent.fbkk4-3.fna&oh=a292f09ab228b30a162039b9ffee3c67&oe=604E1B8E" alt="cabin" />
+          <span>6:30</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>ซ่อนกลิ่น - Plamy</h2>
+          <div class="channel">Plamy</div>
+          <div class="views">183K views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-2.fna.fbcdn.net/v/t1.0-9/147692015_2745932375672001_4517148803645764193_o.jpg?_nc_cat=110&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeEzuKmll6ZZQD2CtsTEfWuiPnRIgsyahnQ-dEiCzJqGdKEgIYqQKyaPrMsWWGesOPAyDqy3EmUlhTvAvAFGW6WB&_nc_ohc=3dE9E3j6FyQAX_-NKSx&_nc_ht=scontent.fbkk4-2.fna&oh=e20c0ac60082f97a99908d03ebec277c&oe=604DFE6B" alt="cabin" />
+          <span>6:03</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>สิงโต นำโชค x เขียนไขและวานิช - บทกวีไม่เก่ง (An Imperfect Poem) [Studio Session]</h2>
+          <div class="channel">Whattheduck</div>
+          <div class="views">2M views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-3.fna.fbcdn.net/v/t1.0-9/149982181_2745932109005361_5087067076306809365_o.jpg?_nc_cat=100&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeEQB1qBl2pFF4l9kuhImovlFfy-fPDa4lwV_L588NriXMtDbbWUA8ZzIPU7HbuIIRyZl_QbSuUL9tZJKNq7HKLF&_nc_ohc=UvtG8H_kQqAAX9N6met&_nc_ht=scontent.fbkk4-3.fna&oh=4b659aaf3bd52ee75905a45eda0eab3d&oe=604F1319" alt="cabin" />
+          <span>4:24</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>t_047 - เพียงฤดู</h2>
+          <div class="channel">T_037 Sound</div>
+          <div class="views">7.5M views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk3-3.fna.fbcdn.net/v/t1.0-9/148280748_2745932445671994_3107061679497171444_o.jpg?_nc_cat=104&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeGVifqnANl16QZ0tPWpz_GoG24lxMMCEwEbbiXEwwITAYNIoyyDmgK1sHI1lqHnrsXdhZEWuHljz3yuS-vjDudX&_nc_ohc=-aL84aJwzY0AX8bqAua&_nc_ht=scontent.fbkk3-3.fna&oh=aaea28658585aa6788bbffb260983570&oe=604F2F6E" alt="cabin" />
+          <span>4:50</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>สิงโต นำโชค - ฉันจะมีเธออยู่ (Official Music Video)</h2>
+          <div class="channel">Whattheduck</div>
+          <div class="views">49M views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk3-3.fna.fbcdn.net/v/t1.0-9/149780031_2745932655671973_3663290525234408705_o.jpg?_nc_cat=103&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeEVAsKtjGp2JzoQ9iIwyLjFkQm2Kula_LWRCbYq6Vr8tYsWX4-4lMWDC49iSF9I7O_pawB8ILDPp9nQyRnGtXxi&_nc_ohc=PeRH4-A8yz0AX_wHz3z&_nc_ht=scontent.fbkk3-3.fna&oh=f5a83fab3a89d14c6021bd900c1a1fec&oe=604E79F1" alt="cabin" />
+          <span>3:15</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>สิงโต นำโชค - เธอยังสวยเหมือนเดิม [Official MV]</h2>
+          <div class="channel">Whattheduck</div>
+          <div class="views">420K views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-2.fna.fbcdn.net/v/t1.0-9/150148699_2745932759005296_3845474683346376564_o.jpg?_nc_cat=110&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeEsRpP7fTHCkRJ6NbABNJgmEsVhdbA2HbASxWF1sDYdsCCkd_aP4UQ-8WmHXzuPXD-rWcovTX1IHNAA0SER1kXk&_nc_ohc=PXWUlwR84NIAX_zYEgA&_nc_ht=scontent.fbkk4-2.fna&oh=9f6160204103a8a538d016d615286f0d&oe=604EC061" alt="cabin" />
+          <span>4:18</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>NAP A LEAN - ไม่คิดถึงเลย (Never Feel Better) | (OFFICIAL MV)</h2>
+          <div class="channel">Spicydisc</div>
+          <div class="views">16.8M views</div>
+        </div>
+      </div>
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-3.fna.fbcdn.net/v/t1.0-9/148919601_2745932815671957_2729554851125316784_o.jpg?_nc_cat=109&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeGxqWHqe-NuimRmcSxEKFs7YNz9ZxtUvdFg3P1nG1S90ZjMVNVt6S4phCoDY229ZrWHoNdy1ElFYR61zFqWpD8s&_nc_ohc=HDvwGGdUY98AX8mKxnf&_nc_ht=scontent.fbkk4-3.fna&oh=c502ec283f0a46e2fde9820d5ae3403f&oe=604E8B12" alt="cabin" />
+          <span>4:30</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>NAP A LEAN - ดึงดูดใจ | (OFFICIAL MV)</h2>
+          <div class="channel">Spicydisc</div>
+          <div class="views">19M views</div>
+        </div>
+      </div>
+
+      <div class="suggested-video">
+        <div class="thumbnail">
+          <img src="https://scontent.fbkk4-1.fna.fbcdn.net/v/t1.0-9/150180376_2745932899005282_1188436337156482678_o.jpg?_nc_cat=107&ccb=3&_nc_sid=dbeb18&_nc_eui2=AeGPf3VFliTzVO_tCMINX6F81gsQw--AN4PWCxDD74A3g1k5SYJ21hJuw-fbNcNQHdigdZC73QADetj2GHaMGkVR&_nc_ohc=qhn_l_USNP0AX-Bzklx&_nc_ht=scontent.fbkk4-1.fna&oh=306e8b3d7baa4d82b25adc1fe0dff715&oe=604BEA21" alt="cabin" />
+          <span>4:18</span>
+        </div>
+        <div class="thumbnail-info">
+          <h2>NAP A LEAN - ไม่คิดถึงเลย | (OFFICIAL MV)</h2>
+          <div class="channel">Spicydisc</div>
+          <div class="views">14M views</div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
 
 </body>
+
 </html>

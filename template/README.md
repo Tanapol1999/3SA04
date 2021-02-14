@@ -1,18 +1,2 @@
-# Youtube Clone
-It is a Youtube clone.
-
-### Features
-+ Exact Clone of Youtube
-
-##### Built With
-+ HTML5
-+ CSS3
-
-# Live Version
-URL: [Youtube Clone](https://youtube-videoplayer-template.imhta.now.sh)
-
-# Authors
-+ Saintaze [@saintaze](https://github.com/saintaze/)
-+ Imhta [@imhta](https://github.com/imhta)
-
-
+3SA Django Advanced Lab I
+ในการใช้งาน Django ซึ่งจะใช้การ implement เป็นภาษา Python ซึ่งในความแตกต่างของการใช้ Django นั้นจะสามารถทำงานได้สะดวกขึ้นกว่า platform อื่นๆ ทั้งนี้ขึ้นอยู่กับความถนัดและความชอบของตัวบุคคล ซึ่งในการทำงานของ Django นั้นจะต้องสร้างตัว Server มาก่อน โดยจะใช้หลักการของการ Rest API ระหว่าง FontEND และ BackEND อีกทั้งยังง่ายต่อการใช้งานฐานข้อมูล SQL อีกด้วย
